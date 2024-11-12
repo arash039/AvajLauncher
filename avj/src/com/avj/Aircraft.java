@@ -1,6 +1,6 @@
 package com.avj;
 
-public class Aircraft implements Flyable{
+public class Aircraft implements Flyable {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
@@ -16,5 +16,22 @@ public class Aircraft implements Flyable{
 
     @Override
     public void registerTower(WeatherTower p_tower){}
-    
+
+	@Override
+	public String getName(){
+		return (this.name);
+	}
+
+	@Override
+	public long getId(){
+		return (this.id);
+	}
+
+	@Override
+	public String getType(){
+		return (this.getClass().getSimpleName());
+	}
+
+	@Override
+	public void printName(){}
 }
