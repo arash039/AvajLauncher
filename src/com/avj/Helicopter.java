@@ -1,14 +1,12 @@
 package com.avj;
 
 public class Helicopter extends Aircraft {
-	protected WeatherTower weatherTower = new WeatherTower();
-
     public Helicopter(long p_id, String p_name, Coordinates p_coordinates){
         super(p_id, p_name, p_coordinates);
     }
     @Override
     public void updateConditions(){
-		String weather = WeatherProvider.getProvider().getCurrentWeather(this.coordinates);
+		String weather = WeatherProvider.getWeatherProvider().getCurrentWeather(coordinates);
 		switch (weather) {
 			case "SUN":
 				this.coordinates = new Coordinates(coordinates.getLongitude() + 2, coordinates.getLatitude(), coordinates.getHeight() + 4);
@@ -31,18 +29,7 @@ public class Helicopter extends Aircraft {
 			this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 100);
 		if (coordinates.height <= 0) {
 			System.out.println("Helicopter#" + name + "(" + id + "): landing.");
-			this.weatherTower.unregister(this);
+			weatherTower.unregister(this);
 		}
-	}
-
-    @Override
-    public void registerTower(WeatherTower p_tower){
-		this.weatherTower = p_tower;
-		weatherTower.register(this);
-	}
-
-	@Override
-	public void printName(){
-		System.out.println(id + " " + name);
 	}
 }
