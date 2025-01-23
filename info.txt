@@ -1,4 +1,0 @@
-java com/avj/AvjMain ./scenario.txt
-javac @sources.txt
-find * -name "*.java" > sources.txt
-find * -name "*.class" -delete
