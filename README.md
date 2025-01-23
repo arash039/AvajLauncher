@@ -1,5 +1,6 @@
 # AvajLauncher
 AvajLauncher is a lightweight simulation program written in Java that models the movement of aircraft in a virtual environment. The project demonstrates object-oriented programming principles, including Singleton, Observer, and Factory design patterns, while adhering to strict UML specifications.
+![classes](https://github.com/arash039/AvajLauncher/blob/main/avaj_uml.png)
 
 ## Features
 - Simulates the movement of various types of aircraft: Baloon, Helicopter, and JetPlane.
