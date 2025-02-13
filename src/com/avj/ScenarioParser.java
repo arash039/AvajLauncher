@@ -25,18 +25,18 @@ public class ScenarioParser {
 					if (!line.isEmpty()) {
 						try {
 							simulationRounds = Integer.parseInt(line);
-							if (simulationRounds < 0) {
+							if (simulationRounds <= 0) {
 								//System.out.println("Error! Number of simulation rounds can't be negative");
 								//System.exit(1);
-								throw new CustomException("Number of simulation rounds can't be negative");
+								throw new CustomException("\u001B[31mNumber of simulation rounds can't be negative\u001B[0m");
 							}
 							lineCounter++;
 						} catch (NumberFormatException e){
-							System.out.println("File should start with a positive number of simulation rounds");
+							System.out.println("File should start with a positive integer number of simulation rounds");
 							System.exit(1);
 						} catch (CustomException e){
-							//e.printStackTrace();
-							System.out.println("\u001B[31mError! Number of simulation rounds can't be negative\u001B[0m");
+							e.printStackTrace();
+							//System.out.println("\u001B[31mError! Number of simulation rounds can't be zero or negative\u001B[0m");
 							System.exit(1);
 						}
 					}
