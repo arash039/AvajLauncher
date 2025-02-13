@@ -86,6 +86,8 @@ Clone the repository. Run:
 ```bash
 cd src
 find * -name "*.java" > sources.txt
+javac @sources.txt 
+java com.avj.AvjMain scenario.txt
 ```
 or
 ```bash
