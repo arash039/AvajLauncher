@@ -26,12 +26,17 @@ public class ScenarioParser {
 						try {
 							simulationRounds = Integer.parseInt(line);
 							if (simulationRounds < 0) {
-								System.out.println("Error! Number of simulation rounds can't be negative");
-								System.exit(1);
+								//System.out.println("Error! Number of simulation rounds can't be negative");
+								//System.exit(1);
+								throw new CustomException("Number of simulation rounds can't be negative");
 							}
 							lineCounter++;
 						} catch (NumberFormatException e){
 							System.out.println("File should start with a positive number of simulation rounds");
+							System.exit(1);
+						} catch (CustomException e){
+							//e.printStackTrace();
+							System.out.println("\u001B[31mError! Number of simulation rounds can't be negative\u001B[0m");
 							System.exit(1);
 						}
 					}

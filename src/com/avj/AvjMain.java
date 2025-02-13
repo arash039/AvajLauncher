@@ -6,9 +6,12 @@ import java.io.PrintStream;
 
 public class AvjMain {
 	public static void main(String[] args) {
-		String filePath = args[0];
-		ScenarioParser.scenarioParser(filePath);
 		try {
+			if (args.length != 1) {
+				throw new CustomException("\u001B[31mError! Wrong arguments\u001B[0m");
+			}
+			String filePath = args[0];
+			ScenarioParser.scenarioParser(filePath);
 			PrintStream fileOut = new PrintStream(new FileOutputStream("output.txt"));
             System.setOut(fileOut);
 			for (Flyable index : ScenarioParser.flyList)
@@ -23,6 +26,8 @@ public class AvjMain {
 				ScenarioParser.weatherTower.changeWeather();
 			}
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (CustomException e) {
 			e.printStackTrace();
 		}
 	}

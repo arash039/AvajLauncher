@@ -80,3 +80,19 @@ public class AircraftFactory {
 
 Centralizes and simplifies object creation.
 Enhances code readability and scalability.
+
+## How to run
+Clone the repository. Run:
+```bash
+cd src
+find * -name "*.java" > sources.txt
+```
+or
+```bash
+javac -d out $(find src -name "*.java")
+java -cp out com.avj.AvjMain src/scenario.txt
+```
+to clean up:
+```bash
+rm $(find * -name "*.class")
+```
