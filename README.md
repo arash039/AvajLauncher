@@ -20,17 +20,18 @@ The WeatherTower class is implemented as a Singleton. The Singleton design patte
 #### Implementation:
 The WeatherTower class uses a private constructor and provides a static getInstance() method to ensure that only one instance can be created:
 ```java
-public class WeatherTower {
-    private static WeatherTower instance;
+public class WeatherProvider {
+	String[] weather = {"SUN", "FOG", "RAIN", "SNOW"};
+	private static WeatherProvider weatherProvider = new WeatherProvider();
 
-    private WeatherTower() { }
-
-    public static WeatherTower getInstance() {
-        if (instance == null) {
-            instance = new WeatherTower();
-        }
-        return instance;
-    }
+	private WeatherProvider(){}
+	public static WeatherProvider getWeatherProvider(){
+		return weatherProvider;
+	}
+	public String getCurrentWeather(Coordinates p_coordinates){
+		String weatheString = weather[(int) (Math.random() * weather.length)];
+		return (weatheString);
+	}
 }
 ```
 ### Observer Pattern
